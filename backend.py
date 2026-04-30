@@ -5,6 +5,8 @@ from datetime import datetime, timezone
 users = {
     "Stefan": {'id': 1246121},
     "Jojo":   {'id': 1237698},
+    "Wastl": {'id': 1231639},
+    "Sophie": {'id': 1229820},
 }
 
 url = "https://observation.org/users/"
