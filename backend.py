@@ -55,7 +55,7 @@ for u, data in users.items():
         m = re.search(query, r.text)
         data[name] = int(m.group(1).replace(',', '')) if m else 0
 
-# Build HTML — categories as rows, users as columns
+# Build HTML
 categories = list(queries.keys())
 sorted_users = sorted(users.items(), key=lambda x: -x[1].get('Species', 0))
 
@@ -94,8 +94,39 @@ html = f"""<!DOCTYPE html>
     line-height: 1.4;
   }}
   .wrap {{ max-width: 700px; margin: 0 auto; }}
-  h1 {{ margin: .2em 0; font-size: 1.6em; }}
+  h1 {{ margin: .2em 0; font-size: 1.6em; display: flex; align-items: center; gap: .4em; }}
   .meta {{ color: var(--muted); font-size: .85em; margin-bottom: 1.5em; }}
+
+  .ball {{
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background: linear-gradient(to bottom, #e63946 50%, white 50%);
+    border: 2px solid #222;
+    border-radius: 50%;
+    position: relative;
+    flex-shrink: 0;
+  }}
+  .ball::before {{
+    content: '';
+    position: absolute;
+    left: -2px; right: -2px;
+    top: 50%;
+    height: 2px;
+    background: #222;
+    transform: translateY(-50%);
+  }}
+  .ball::after {{
+    content: '';
+    position: absolute;
+    left: 50%; top: 50%;
+    width: .35em; height: .35em;
+    background: white;
+    border: 2px solid #222;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+  }}
+
   table {{
     width: 100%;
     border-collapse: collapse;
@@ -135,7 +166,7 @@ html = f"""<!DOCTYPE html>
 </head>
 <body>
 <div class="wrap">
-  <h1>🐦 Species Leaderboard</h1>
+  <h1><span class="ball" aria-hidden="true"></span> Species Leaderboard</h1>
   <p class="meta">Data from observation.org · Updated {updated}</p>
   <table>
     <thead>
@@ -150,5 +181,7 @@ html = f"""<!DOCTYPE html>
 
 with open("index.html", "w") as f:
     f.write(html)
+
+print("Wrote index.html")
 
 print("Wrote index.html")
