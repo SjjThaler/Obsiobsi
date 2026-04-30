@@ -167,7 +167,7 @@ html = f"""<!DOCTYPE html>
 <body>
 <div class="wrap">
   <h1><span class="ball" aria-hidden="true"></span> Species Leaderboard</h1>
-  <p class="meta">Data from observation.org · Updated {updated}</p>
+  <p class="meta">Updated {updated}</p>
   <table>
     <thead>
       <tr><th>Category</th>{user_headers}</tr>
