@@ -17,7 +17,7 @@ jobs:
         with:
           python-version: '3.11'
       - run: pip install -r requirements.txt
-      - run: python species_leaderboard.py
+      - run: python backend.py
       - name: Commit if changed
         run: |
           git config user.name "github-actions"
