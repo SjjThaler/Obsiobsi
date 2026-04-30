@@ -74,7 +74,7 @@ html = f"""<!DOCTYPE html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Species Leaderboard</title>
+<title>Pokedex-Board</title>
 <style>
   :root {{
     --bg: #fafafa;
