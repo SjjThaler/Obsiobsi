@@ -39,7 +39,7 @@ for u, data in users.items():
     if r.status_code != 200:
         continue
     if 'species_group_id' not in r.text:
-        print(f"  -> page loaded but no species data (logged out / blocked?)")
+        print(f"  -> response preview: {r.text[:500]}")
         continue
     for name, query in queries.items():
         m = re.search(query, r.text)
