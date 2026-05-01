@@ -166,7 +166,7 @@ html = f"""<!DOCTYPE html>
 </head>
 <body>
 <div class="wrap">
-  <h1><span class="ball" aria-hidden="true"></span> Species Leaderboard</h1>
+  <h1><span class="ball" aria-hidden="true"></span> Pokedex-Board</h1>
   <p class="meta">Updated {updated}</p>
   <table>
     <thead>
